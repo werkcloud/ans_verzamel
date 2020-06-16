@@ -1,6 +1,7 @@
 ---
 - name: deployen vsftpd
-  hosts: sldclr1001
+  hosts: all
+  become: true
   tasks:
   - name: install vsftpd
     package:
