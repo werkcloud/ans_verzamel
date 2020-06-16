@@ -12,6 +12,7 @@
     service: 
       name: vsftpd 
       enabled: true
+      state: started
   - name: maak readme file
     copy:
       content: "welkom in amsterdam!\n"
