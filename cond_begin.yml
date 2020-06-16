@@ -1,5 +1,4 @@
 ---
-- hosts: sldclr1001
   tasks:
    - name: Copy file
      copy:
