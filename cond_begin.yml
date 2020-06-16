@@ -5,7 +5,7 @@
   tasks:
    - name: Copy file
      copy:
-         src: /tmp/bla
+         src: /home/awx/bla
          dest: /tmp/
          owner: root
          group: root
