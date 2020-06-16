@@ -1,10 +1,11 @@
 ---
-- name: Copy file
+- hosts: all
   tasks:
-    copy:
-        src: /tmp/bla
-        dest: /tmp/
-        owner: root
-        group: root
-        mode: 0755
-    when: ansible_distribution == "RedHat" and ansible_distribution_major_version == '7'
+   - name: Copy file
+     copy:
+         src: /tmp/bla
+         dest: /tmp/
+         owner: root
+         group: root
+         mode: 0755
+     when: ansible_distribution == "RedHat" and ansible_distribution_major_version == '7'
