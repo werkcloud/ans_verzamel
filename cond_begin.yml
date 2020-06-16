@@ -5,8 +5,8 @@
   tasks:
    - name: Copy file
      copy:
-         src: /home/awx/bla
-         dest: /tmp/
+         src: /tmp/bla
+         dest: /root/
          owner: root
          group: root
          mode: 0755
