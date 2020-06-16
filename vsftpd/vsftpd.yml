@@ -4,10 +4,12 @@
   tasks:
   - name: install vsftpd
     package:
-     name: vsftpd
+      name: vsftpd
       state: latest
   - name: enable vsftpd
-    service: name=vsftpd enabled=true
+    service: 
+      name: vsftpd 
+      enabled: true
   - name: create readme file
     copy:
       content: "welcome to my friendly server\n"
