@@ -7,7 +7,7 @@
      copy:
          src: /tmp/bla
          dest: /root/
-         remote_src: no
+         remote_src: yes
          owner: root
          group: root
          mode: 0755
