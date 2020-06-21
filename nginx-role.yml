@@ -1,0 +1,8 @@
+---
+- name: use galaxy nginx role
+  hosts: sldclr1001
+  become: true
+  become_user: root
+
+  roles:
+    - role: geerlingguy.nginx
