@@ -14,6 +14,7 @@
       register: eth1
     - name: copy content
       local_action: copy content="{{ item.value }}" dest="/root/haas-{{ item.variable }}-{{ ansible_date_time.date }}-{{ ansible_hostname }}.log"
+      remote_src: yes
       with_items:
         - variable: eth0
           value: "{{ eth0 }}"
