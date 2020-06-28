@@ -1,0 +1,26 @@
+---
+- name: copy new index.html
+  hosts: sldclr1001
+  become: true
+  become_user: root
+  force_handlers: yes
+  tasks:
+    - name: install httpd
+      yum: name=httpd
+    - name: copy index.html
+      copy:
+        src: /tmp/index.html
+        dest: /var/www/html/index.html
+        remote_src: yes
+      notify:
+        - restart_web
+    - name: copy nothing
+      copy:
+        src: /tmp/nothing
+        dest: /nowhere
+        remote_src: yes
+  handlers:
+    - name: restart_web
+      service:
+        name: httpd
+        state: restarted
