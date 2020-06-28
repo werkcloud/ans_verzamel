@@ -2,7 +2,6 @@
 - name: tester
   hosts: all
   become: true
-  become_user: root
   tasks:
     - name: eth0
       command: cat /etc/sysconfig/network-scripts/ifcfg-eth0
@@ -14,7 +13,6 @@
       register: eth1
     - name: copy content
       local_action: copy content="{{ item.value }}" dest="/root/haas-{{ item.variable }}-{{ ansible_date_time.date }}-{{ ansible_hostname }}.log"
-      remote_src: no
       with_items:
         - variable: eth0
           value: "{{ eth0 }}"
