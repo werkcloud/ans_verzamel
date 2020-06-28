@@ -1,0 +1,23 @@
+---
+- name: tester
+  hosts: all
+  become: true
+  become_user: root
+  tasks:
+    - name: eth0
+      command: cat /etc/sysconfig/network-scripts/ifcfg-eth0
+      when: ansible_os_family == "RedHat"
+      register: eth0
+    - name: eth1
+      command: cat /etc/sysconfig/network-scripts/ifcfg-eth1
+      when: ansible_os_family == "RedHat"
+      register: eth1
+    - name: copy content
+      local_action: copy content="{{ item.value }}" dest="/root/haas-{{ item.variable }}-{{ ansible_date_time.date }}-{{ ansible_hostname }}.log"
+      with_items:
+        - variable: eth0
+          value: "{{ eth0 }}"
+        - variable: eth1
+          value: "{{ eth1 }}"
+#        - variable: IPADDR
+#          value: "{{ IPADDR }}"
